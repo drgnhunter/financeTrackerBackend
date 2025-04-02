@@ -33,7 +33,7 @@ public class MainController {
         return "Hello, World!";
     }
     
-    @GetMapping("/createStudent")
+    @GetMapping("/createUser")
     public String createUserNew() {
         UserDao userDao = new UserDao();
         User user = new User("john_doe", "password123@");
