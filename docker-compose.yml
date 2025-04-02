@@ -1,0 +1,29 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: Irony@aHunter123@  # Set password for root user
+      MYSQL_DATABASE: financetracker         # Database to be created
+    ports:
+      - "3307:3306"
+    networks:
+      - app-network
+
+  springboot-app:
+    build: .
+    container_name: springboot-container
+    depends_on:
+    - mysql
+    command: /bin/bash -c "wait-for-it mysql:3306 -- java -jar app.jar"
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
