@@ -1,2 +1,2 @@
 # financeTrackerBackend
- Personal Finance Tracker built using Java Springboot and Hibernate ORM. 
+ User Authentication microservice for Personal Finance Tracker built using Java Springboot and Hibernate ORM. 
